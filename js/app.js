@@ -18,7 +18,7 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-  isLiked(id)
+  likedPostsId.push(id)
   showPosts(posts);
 };
 
@@ -29,7 +29,11 @@ const reportPost = (id) => {
 };
 
 const displayContent = (text) => {
-  return text.length < 30 ? 'text' : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
+  if (text.length > 30) {
+    return text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
+  } else {
+    return text;
+  }
 };
 
 const switchTab = (id) => {
@@ -162,7 +166,7 @@ const displayReportedPosts = () => {
 };
 
 const loadPosts = async () => {
-  let data = await fetch('../data/posts.json');
+  let data = await fetch('./data/posts.json');
   posts = await data.json();
   showPosts(posts);
 }
