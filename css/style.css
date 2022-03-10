@@ -269,6 +269,11 @@ img {
   display: none;
 }
 
+.container {
+  width: 80%;
+  margin: 0, auto;
+}
+
 .javascript-title {
   text-align: center;
   margin: 30px 0;
